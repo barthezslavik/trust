@@ -1,0 +1,4 @@
+workflow Hello {
+  step print("hello trust")
+}
+

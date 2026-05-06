@@ -1,45 +1,60 @@
-# Introduction
+# 1. Introduction
 
-Trust is a language for systems where the hard part is not only computation, but
-coordination: who may act, when an action is valid, what state transition is
-allowed, how failures are compensated, and how execution can be audited or
-replayed later.
+Trust is a coordination-safe programming language for autonomous systems.
 
-Most general-purpose languages can build these systems, but they often hide the
-coordination model inside framework code, queues, databases, permissions tables,
-and retry policies. Trust makes those coordination rules part of the program.
+Traditional systems programming languages solve:
 
-## A Small Example
+* memory safety,
+* concurrency safety,
+* low-level correctness.
 
-```trust
-workflow OnboardCustomer(input: SignupRequest) -> CustomerAccount {
-    let email = verify input.email as VerifiedEmail
+Trust solves a different class of problems:
 
-    reserve account_id from Accounts
-        idempotency input.request_id
-
-    create account CustomerAccount {
-        id: account_id,
-        email,
-        state: PendingReview
-    }
-
-    emit CustomerOnboarded(account.id)
-
-    return account
-}
+```text id="hjrrsp"
+duplicate execution
+invalid workflow transitions
+unsafe retries
+tool misuse
+budget overruns
+agent conflicts
+distributed coordination failures
 ```
 
-This example is intentionally compact. Later chapters unpack the pieces:
-semantic types, ownership, capabilities, states, events, idempotency, audit
-logs, and replay.
+Modern software is no longer just:
 
-## What Trust Optimizes For
+* functions,
+* threads,
+* memory allocations.
 
-- Explicit authority: actions require capabilities.
-- Explicit time: leases, deadlines, and temporal validity are typed concepts.
-- Explicit state: workflows move through declared states and transitions.
-- Explicit recovery: retries, rollbacks, and compensation are part of the model.
-- Explicit evidence: logs and execution graphs are runtime artifacts, not
-  afterthoughts.
+It is:
+
+* workflows,
+* agents,
+* tools,
+* browser sessions,
+* distributed queues,
+* external APIs,
+* long-running execution graphs.
+
+Trust introduces:
+
+```text id="fx1zk8"
+workflow safety
+capability ownership
+causal execution
+temporal validity
+coordination checking
+```
+
+Where Rust asks:
+
+```text id="x0stp5"
+is memory access valid?
+```
+
+Trust asks:
+
+```text id="rwjqv9"
+is this autonomous action valid?
+```
 

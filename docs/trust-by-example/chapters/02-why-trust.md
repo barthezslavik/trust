@@ -1,59 +1,39 @@
-# Why Trust?
+# 2. Why Trust?
 
-Coordination software often starts simple and becomes fragile as soon as it
-crosses boundaries: a payment provider, a human review queue, a browser session,
-an LLM call, a CRM update, a worker retry, or a distributed lock.
+Modern AI systems are fundamentally coordination systems.
 
-Trust exists to make those boundaries visible and checkable.
+A typical autonomous workflow:
 
-## The Problem
-
-In many systems, critical rules live in different places:
-
-- Access rules live in middleware.
-- State rules live in application code.
-- Retry rules live in job configuration.
-- Audit rules live in database triggers.
-- Human approval rules live in ticket workflows.
-- LLM safety rules live in prompts.
-
-That split makes the system hard to reason about. A local code change can break
-a global coordination rule.
-
-## The Trust Approach
-
-Trust puts coordination into the language surface:
-
-```trust
-capability ChargeCustomer {
-    provider: Stripe
-    max_amount: Money<USD>
-    valid_until: Instant
-}
-
-workflow CollectInvoice(invoice: Invoice)
-    requires ChargeCustomer
-{
-    invariant invoice.total <= ChargeCustomer.max_amount
-
-    charge invoice.customer for invoice.total
-        using ChargeCustomer
-        idempotency invoice.id
-}
+```text id="r9j3s3"
+search leads
+-> scrape websites
+-> enrich data
+-> score companies
+-> send outreach
+-> process replies
+-> update CRM
 ```
 
-The program says which authority is required, how much money can move, when the
-authority expires, and how duplicate execution is controlled.
+The difficult part is no longer generating text.
 
-## When Trust Is a Fit
+The difficult part is guaranteeing:
 
-Trust is designed for:
+```text id="x8f1zv"
+actions happen safely
+actions happen once
+actions happen in order
+resources are not corrupted
+state remains consistent
+```
 
-- Durable workflows.
-- Multi-agent systems.
-- Human-in-the-loop automation.
-- Browser and tool runtimes.
-- Event-sourced systems.
-- Compliance-sensitive automation.
-- Distributed coordination with replay requirements.
+Traditional languages do not understand:
+
+* workflows,
+* retries,
+* permissions,
+* causality,
+* budgets,
+* distributed execution.
+
+Trust introduces these concepts as first-class primitives.
 

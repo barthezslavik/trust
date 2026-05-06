@@ -1,37 +1,42 @@
-# Primitives
+# 4. Primitives
 
-Trust starts with a small set of primitive values. Domain meaning is usually
-added with semantic types, but primitives are useful at the edges.
+Trust contains standard primitives:
 
-## Values
-
-```trust
-let name: Text = "Ada"
+```trust id="j74gdo"
+let count: Int = 10
+let price: Float = 15.5
 let active: Bool = true
-let attempts: Int = 3
-let score: Float = 0.98
-let created_at: Instant = now()
-let delay: Duration = 5.minutes
+let name: String = "Acme"
 ```
 
-## Collections
+But Trust also introduces coordination primitives:
 
-```trust
-let tags: List<Text> = ["trial", "crm"]
-let counts: Map<Text, Int> = {
-    "accepted": 10,
-    "rejected": 2
+```trust id="fiyf9d"
+let timeout: Duration = 5.minutes
+let budget: Money = $20
+let probability: Probability = 0.92
+```
+
+These primitives exist because autonomous systems operate in:
+
+* time,
+* economics,
+* uncertainty.
+
+Example:
+
+```trust id="41v1i2"
+workflow PaymentRetry {
+  timeout 30.seconds
+  budget <$2
+
+  step charge_customer()
 }
 ```
 
-## Prefer Meaningful Types
+The compiler and runtime can reason about:
 
-Primitive values are easy to pass to the wrong place. Trust encourages semantic
-types for values that carry business or safety meaning.
-
-```trust
-semantic type CustomerId = Text
-semantic type EmailAddress = Text
-semantic type RetryCount = Int
-```
+* timeouts,
+* resource usage,
+* execution costs.
 

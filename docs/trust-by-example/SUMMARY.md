@@ -5,40 +5,40 @@
 3. [Hello Workflow](chapters/03-hello-workflow.md)
 4. [Primitives](chapters/04-primitives.md)
 5. [Semantic Types](chapters/05-semantic-types.md)
-6. Custom Types
-7. Variable Bindings
-8. Ownership & Leases
-9. Capabilities
-10. States
-11. Events
-12. Workflows
-13. Transitions
-14. Expressions
-15. Flow of Coordination
-16. Time & Durations
-17. Functions
-18. External Actions
-19. Modules
-20. Packages
-21. Trust Toolchain
-22. Attributes
-23. Policies
-24. Invariants
-25. Contracts
-26. Generics
-27. Scoping Rules
-28. Agents
-29. Agent Memory
-30. Agent Permissions
-31. Tool Runtime
-32. Browser Sessions
-33. Queues
-34. Scheduling
-35. Retry Semantics
-36. Rollbacks
-37. Compensation Flows
-38. Failure Handling
-39. Human Review Gates
+6. [Custom Types](chapters/06-custom-types.md)
+7. [Variable Bindings](chapters/07-variable-bindings.md)
+8. [Ownership & Leases](chapters/08-ownership-and-leases.md)
+9. [Capabilities](chapters/09-capabilities.md)
+10. [States](chapters/10-states.md)
+11. [Events](chapters/11-events.md)
+12. [Workflows](chapters/12-workflows.md)
+13. [Transitions](chapters/13-transitions.md)
+14. [Expressions](chapters/14-expressions.md)
+15. [Flow of Coordination](chapters/15-flow-of-coordination.md)
+16. [Time & Durations](chapters/16-time-and-durations.md)
+17. [Functions](chapters/17-functions.md)
+18. [External Actions](chapters/18-external-actions.md)
+19. [Modules](chapters/19-modules.md)
+20. [Packages](chapters/20-packages.md)
+21. [Trust Toolchain](chapters/21-trust-toolchain.md)
+22. [Attributes](chapters/22-attributes.md)
+23. [Policies](chapters/23-policies.md)
+24. [Invariants](chapters/24-invariants.md)
+25. [Contracts](chapters/25-contracts.md)
+26. [Generics](chapters/26-generics.md)
+27. [Scoping Rules](chapters/27-scoping-rules.md)
+28. [Agents](chapters/28-agents.md)
+29. [Agent Memory](chapters/29-agent-memory.md)
+30. [Agent Permissions](chapters/30-agent-permissions.md)
+31. [Tool Runtime](chapters/31-tool-runtime.md)
+32. [Browser Sessions](chapters/32-browser-sessions.md)
+33. [Queues](chapters/33-queues.md)
+34. [Scheduling](chapters/34-scheduling.md)
+35. [Retry Semantics](chapters/35-retry-semantics.md)
+36. [Rollbacks](chapters/36-rollbacks.md)
+37. [Compensation Flows](chapters/37-compensation-flows.md)
+38. [Failure Handling](chapters/38-failure-handling.md)
+39. [Human Review Gates](chapters/39-human-review-gates.md)
 40. Audit Logs
 41. Causality
 42. Deterministic Execution
@@ -90,4 +90,3 @@
 88. Ecosystem
 89. Community
 90. Contributing to Trust
-
