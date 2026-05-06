@@ -1,0 +1,13 @@
+workflow HelloWorkflow(name: Text) -> Greeting {
+    let message = "Hello, " + name
+
+    create greeting Greeting {
+        message,
+        created_at: now()
+    }
+
+    emit GreetingCreated(greeting.message)
+
+    return greeting
+}
+
